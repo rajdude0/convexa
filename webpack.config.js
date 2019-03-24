@@ -5,6 +5,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './app/index.js',
+    mode:"development",
     output: {
         path: __dirname,
         filename: 'bundle.js',
@@ -16,7 +17,13 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'app')
+        contentBase: path.join(__dirname, 'app'),
+        port:3001,
+        hot:true,
+        inline:true,
+        proxy:{
+            "/":"http://localhost:3000/"
+        }
     },
     module: {
         rules: [{
