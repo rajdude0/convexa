@@ -9,11 +9,13 @@ import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from './webpack.config';
 import webpackDevServer from 'webpack-dev-server';
+import fs from 'fs';
 
 
 
 const app = express();
 const compiler = webpack(webpackConfig);
+const router = express.Router();
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath:webpackConfig.output.publicPath
@@ -26,6 +28,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')))
 
 
+
+router.get('/info', (req, res, next) => {
+  res.json({message:"Hello there"});
+})
+
+router.post('/save', (req, res)=>{
+  fs.writeFileSync("output.json",JSON.stringify(req.body));
+  res.json({message:"file saved successfully"});
+})
+
+router.get("/", (req, res, next)=>{
+  res.json({message:"API is working"});
+})
+
+app.use('/api', router)
 app.use(function(req, res, next){
     const err = new Error('Not Found');
     err.status = 404;
@@ -59,7 +76,7 @@ if (app.get('env') === 'development') {
 
 
 const devServer = new webpackDevServer(webpack(webpackConfig), { proxy:{
-  "/api":"http://localhost:3000/"
+  "/api/*":"http://localhost:3000/"
 }, contentBase:"app", inline:true, hot:true, stats: { colors: true }, publicPath: webpackConfig.output.publicPath})
 devServer.listen(3001, 'localhost' , (err) => {
   if (err) {
