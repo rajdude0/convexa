@@ -9,7 +9,8 @@ import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from './webpack.config';
 import webpackDevServer from 'webpack-dev-server';
-import fs from 'fs';
+import os from 'os';
+import { exec } from 'child_process';
 
 
 
@@ -17,36 +18,26 @@ const app = express();
 const compiler = webpack(webpackConfig);
 const router = express.Router();
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath:webpackConfig.output.publicPath
-}))
-app.use(webpackHotMiddleware(compiler));
+//app.use(webpackDevMiddleware(compiler, {
+//  publicPath:webpackConfig.output.publicPath
+//}))
+//app.use(webpackHotMiddleware(compiler));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-
-router.get('/info', (req, res, next) => {
-  res.json({message:"Hello there"});
-})
-
-router.post('/save', (req, res)=>{
-  fs.writeFileSync("output.json",JSON.stringify(req.body));
-  res.json({message:"file saved successfully"});
-})
-
-router.get("/", (req, res, next)=>{
-  res.json({message:"API is working"});
+router.get("/", (req, res, next) => {
+  res.json({ message: "API is working" });
 })
 
 app.use('/api', router)
-app.use(function(req, res, next){
-    const err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+app.use(function (req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 })
 
 
@@ -55,42 +46,43 @@ app.use(function(req, res, next){
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-      res.status(err.status || 500);
-      res.json({
-        message: err.message,
-        error: err
-      });
-    });
-  }
-  
-
-  
-  
-  // production error handler
-  // no stacktraces leaked to user
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.json({
       message: err.message,
-      error: {}
+      error: err
     });
   });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.json({
+    message: err.message,
+    error: {}
+  });
+});
 
 
-const devServer = new webpackDevServer(webpack(webpackConfig), { proxy:{
-  "/api/*":"http://localhost:3000/"
-}, contentBase:"app", inline:true, hot:true, stats: { colors: true }, publicPath: webpackConfig.output.publicPath})
-devServer.listen(3001, 'localhost' , (err) => {
+const devServer = new webpackDevServer(webpack(webpackConfig), {
+  proxy: {
+    "/api/*": "http://localhost:3000/"
+  }, contentBase: "app", inline: true, hot: true, stats: { colors: true }, publicPath: webpackConfig.output.publicPath
+})
+devServer.listen(3001, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
-  console.log('Listening at localhost:' + 3001 );
+  console.log('Listening at localhost:' + 3001);
   console.log('Opening your system browser...');
-  
+  const cmdPrex = os.type() === 'Darwin' ? 'open' : 'start';
+  exec(`${cmdPrex} http://localhost:3001`);
+
 });
-  
+
 const server = http.createServer(app);
-server.listen(3000);
+server.listen(3000);ß
 
 
