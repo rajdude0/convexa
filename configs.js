@@ -1,5 +1,5 @@
 export default {
-    BOTPRESS: 'http://localhost:3002',
+    BOTPRESS: 'http://172.30.34.120:3002',
     BOTID: 'testbot',
     MONGODB: '<update the endpoin there>',
     // Include any other service endpoints here
