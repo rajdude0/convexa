@@ -1,4 +1,5 @@
-# react-express-boilerplate
+# Convexa
+Conversational exchange of APIs
 
 ## Run Dev
 ```shell
