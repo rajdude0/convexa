@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/base.css" />
+        <script src="https://use.fontawesome.com/72b58638f4.js"></script>
+    </head>
+    <body>
+        <div class="form-container studio-app">
+            <h1>Convexa studio</h1>
+            <div name="register" id="register">
+                <div class="form-row">
+                    <label for = "api"><span>API</span>
+                    <input type="text" name="api" id="api" required/></label>
+                </div>
+                <div class="form-row" id="inputs_div">
+                    <label><span>Inputs</span>
+                        <div id="inputs">
+                            <div class="inputs-container">
+                                <input type="text" name="inputName" id="input1" required/>
+                                <input type="text" name="inputValue" id="input2" required/>
+                                <i class="fa fa-plus-circle fa-inline" aria-hidden="true" id="add_input"></i>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label for = "method"><span>Method</span>
+                    <select name="method" id="method" required>
+                        <option value="get">GET</option>
+                    </select>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label><span>Intents</span>
+                        <div id="intents">
+                        <div class="intents-holder">
+                            <input type="text" id="intent1" name="intent" required></input>
+                            <i class="fa fa-plus-circle fa-inline" aria-hidden="true" id="add_intents"></i>
+
+                        </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label for = "resType"><span>Response Type</span>
+                    <select name="resType" id="resType" required>
+                        <option value="table">TABLE</option>
+                        <option value="card">CARD</option>
+                    </select>
+                    </label>
+                </div>
+                <div class="form-row button-holder">
+                    <input type="button" id="form_reset" value="Reset" class="button button-default"/>
+                    <input type="button" id="form_submit" value="Submit" class="button button-primary" />
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/studio.js"></script>
+</html>

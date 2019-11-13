@@ -1,0 +1,148 @@
+/*######## Smart Green ########*/
+.studio-app {
+    margin-left:auto;
+    margin-right:auto;
+    overflow: auto;
+    max-width: 50%;
+    background: #F8F8F8;
+    padding: 20px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.studio-app h1 {
+    font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 20px 0px 20px 40px;
+    display: block;
+    margin: -30px -30px 10px -30px;
+    color: #FFF;
+    background: #FFAC63;
+    text-shadow: 1px 1px 1px #949494;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-bottom:1px solid #0099cb;
+
+}
+.studio-app h1>span {
+    display: block;
+    font-size: 11px;
+    color: #FFF;
+}
+
+.studio-app label {
+    margin: 0px 0px 5px;
+}
+.studio-app label+imput{
+    display: inline-block;
+}
+.studio-app label>span {
+    float: left;
+    margin-top: 10px;
+    color: #5E5E5E;
+}
+.studio-app input[type="text"], .studio-app input[type="email"], .studio-app textarea, .studio-app select {
+    color: #555;
+    height: 30px;
+    line-height:15px;
+    padding: 0px 0px 0px 10px;
+    margin-top: 2px;
+    border: 1px solid #E5E5E5;
+    background: #FBFBFB;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+    font: normal 14px/14px Arial, fa5-proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+.studio-app textarea{
+    height:100px;
+    padding-top: 10px;
+}
+.studio-app select {
+    background: url('../images/down-arrow.png') no-repeat right, -moz-linear-gradient(top, #FBFBFB 0%, #E9E9E9 100%);
+    background: url('../images/down-arrow.png') no-repeat right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#E9E9E9));
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    text-indent: 0.5em;
+    text-overflow: '';
+    height:30px;
+}
+.studio-app .button {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    padding: 10px 25px 10px 25px;
+    text-shadow: 1px 1px 1px #949494;
+}
+
+.button-holder{
+    float:right;
+    padding:5px;
+    clear:both;
+}
+.form{
+    overflow: auto;
+}
+.form-row{
+    clear:both;
+    margin: 0px 0px 3%;
+    overflow:auto;
+}
+.button-default{
+    background-color: #FFF;
+    color: #32485B;
+    border:1px solid #32485B;
+}
+.button-default:hover {
+    background-color: #FFF;
+    border-color: #02A2D8;
+    color: #02A2D8;
+}
+.button-primary{
+    background-color: #F1780E;
+    border-color: #A64E00;
+    color: #FFF;
+}
+.button-primary:hover {
+    background-color: #FFAC63;
+    border-color: #F1780E;
+}
+input[type="text"]:hover,textarea:hover{
+    border: 1px solid #0099cb;
+}
+label>span {
+    float: left;
+    width: 15%;
+    text-align: right;
+    padding-right: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size:1.1em;
+}
+label>textarea,label > input[type="text"],label > select,input[type="text"]{
+    width: 80%;
+    border-radius: 5px;
+}
+.studio-app #intents,#inputs{
+    float: left;
+    width: 80%;
+}
+.studio-app .intents-holder input{
+    width: 80%;
+}
+#inputs_div .inputs-container>input{
+    width:20%;
+    margin: 0.5em 1em 0 0;
+}
+i.fa{
+    font-size: 1.5em;
+    margin: 10px;
+    cursor:pointer;
+}
+.fa-inline{
+    margin-left:4px !important;
+}
