@@ -1,3 +1,4 @@
+
 (function() {
     var index = 2;
     document.getElementById("add_input").addEventListener("click", function (event) {
@@ -10,7 +11,6 @@
         var form_submit_button = document.getElementById("form_submit");
         form_submit_button.addEventListener("click", function (e) {
             var json = toJSONString();
-            console.log(json);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState== 4 && this.status == 200){
@@ -18,7 +18,7 @@
                 }
             };
 
-            xhttp.open('POST', 'http://127.0.0.1:3200/', true);
+            xhttp.open('POST', `../api/save`, true);
             xhttp.setRequestHeader('Content-Type','application/json');
             xhttp.send(JSON.stringify(json));
         }, false);
