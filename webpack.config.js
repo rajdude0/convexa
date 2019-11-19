@@ -1,14 +1,18 @@
 const path = require('path');
+const configs = require('./configs');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry: './app/index.js',
+    entry: {
+        react: './app/index.js', 
+        studio: './app/studio/js/studio.js'
+    },
     mode:"development",
     output: {
         path: __dirname,
-        filename: 'bundle.js',
+        filename: 'bundle-[name].js',
         publicPath: '/app/assets'
     },
     resolve: {
@@ -18,11 +22,11 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'app'),
-        port:3001,
+        port:configs.default.UIPORT,
         hot:true,
         inline:true,
         proxy:{
-            "/":"http://localhost:3000/"
+            "/api/*":`http://localhost:${configs.default.APIPORT}/`
         }
     },
     module: {
