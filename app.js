@@ -60,11 +60,8 @@ router.post('/save', function(req, res) {
   //TODO: as we get information to save, process it and create intent for that with the posssible strings,
   // also add this created intent to the flow and train the model manually.
   console.log(req.body);
-  const { api, userinputs, intents, method, inputValue } = req.body;
-  if(!inputValue) {
-    inputValue = Math.random()* 100;
-  }
-  convexa.createAPIEntry({ url: api, intentname: `${inputValue}-intent` , method, slots: userinputs, utterances: intents});
+  const { api, userinputs, intents, method, intent } = req.body;
+  convexa.createAPIEntry({ url: api, intentname: intent , method, slots: userinputs, utterances: intents});
   var myData = new Studio(req.body);
   myData.save().then(function(item){
       res.send("Data saved to database");

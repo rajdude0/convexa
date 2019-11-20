@@ -116,7 +116,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <JsonToTable json={myJSON} />
+                {/*<JsonToTable json={myJSON} />*/}
               <div id="chatbot">
                     
         </div>
