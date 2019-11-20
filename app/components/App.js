@@ -49,9 +49,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <div id="chatbot">
-
-                </div>
+                {/*<JsonToTable json={myJSON} />*/}
+              <div id="chatbot">
+                    
+        </div>
             </div>
 
         )
