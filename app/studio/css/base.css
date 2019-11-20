@@ -146,3 +146,22 @@ i.fa{
 .fa-inline{
     margin-left:4px !important;
 }
+.card{
+    float: left;
+    width: 40%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #eee;
+    border-left: 2px solid #f8971d;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.card > span{
+    display:block;
+    font-weight: bold;
+    margin: 0.5em 1em;
+}
+.card > span span{
+    font-weight:normal;
+}

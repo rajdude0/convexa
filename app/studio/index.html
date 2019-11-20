@@ -7,11 +7,15 @@
     <body>
         <div class="form-container studio-app">
             <h1>Convexa studio</h1>
+            <div class="form-row">
+                <label for = "project"><span>Project</span>
+                    <input type="text" name="project" id="project" required/></label>
+            </div>
             <div name="register" id="register">
                 <div class="form-row">
-                    <label for = "api"><span>API</span>
+                <label for = "api"><span>API</span>
                     <input type="text" name="api" id="api" required/></label>
-                </div>
+            </div>
                 <div class="form-row" id="inputs_div">
                     <label><span>Inputs</span>
                         <div id="inputs">
@@ -32,10 +36,14 @@
                     </label>
                 </div>
                 <div class="form-row">
-                    <label><span>Intents</span>
+                    <label for = "intent"><span>Intent</span>
+                        <input type="text" name="intent" id="intent" required/></label>
+                </div>
+                <div class="form-row">
+                    <label><span>Expressions</span>
                         <div id="intents">
                         <div class="intents-holder">
-                            <input type="text" id="intent1" name="intent" required></input>
+                            <input type="text" id="intent1" name="intents" required></input>
                             <i class="fa fa-plus-circle fa-inline" aria-hidden="true" id="add_intents"></i>
 
                         </div>
@@ -46,7 +54,6 @@
                     <label for = "resType"><span>Response Type</span>
                     <select name="resType" id="resType" required>
                         <option value="table">TABLE</option>
-                        <option value="card">CARD</option>
                     </select>
                     </label>
                 </div>
