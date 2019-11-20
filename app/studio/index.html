@@ -6,8 +6,8 @@
     </head>
     <body>
         <div class="form-container studio-app">
-            <form onSubmit="return contact()">
-                <h1><!--<img src="images/logo.jpeg" title="logo"/>--><p>Convexa studio</p></h1>
+            <form onSubmit="return submitForm()">
+                <h1><img src="images/bot.png" title="logo" class="logo"/><p>Convexa studio</p></h1>
 
             <div class="form-row">
                 <label for = "project"><span>Project</span></label>
@@ -22,8 +22,8 @@
                     <label><span>Inputs</span></label>
                         <div id="inputs">
                             <div class="inputs-container">
-                                <input type="text" name="inputName" id="input1" required/>
-                                <input type="text" name="inputValue" id="input2" required/>
+                                <input type="text" name="inputName" id="input1" />
+                                <input type="text" name="inputValue" id="input2" />
                                 <i class="fa fa-plus-circle fa-inline" aria-hidden="true" id="add_input"></i>
                             </div>
                         </div>

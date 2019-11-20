@@ -85,8 +85,8 @@
 
     function addRows(event) {
         var div = createElement('div','','inputs-container','',true,'');
-        var input1 = createElement('input','text','','inputName',true,'');
-        var input2 = createElement('input','text','','inputValue',true,'');
+        var input1 = createElement('input','text','','inputName',false,'');
+        var input2 = createElement('input','text','','inputValue',false,'');
 
         var icondel = createElement('i','','fa fa-minus-circle','',false,'');
         var iconadd = createElement('i','','fa fa-plus-circle','',false,'');
@@ -191,7 +191,7 @@ function toJSONString() {
     return obj;
     // return JSON.stringify(obj);
 }
-window.contact = function(){
+window.submitForm = function(){
     var json = toJSONString();
     var xhttp = new XMLHttpRequest();
 

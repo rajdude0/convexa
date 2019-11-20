@@ -25,8 +25,6 @@
     -webkit-border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
     border-bottom:1px solid #0099cb;
-    /*background-image: url("../images/logo.jpeg");
-    background-repeat : no-repeat;*/
 
 }
 .studio-app h1>span {
@@ -53,31 +51,18 @@ studio-app label>span {
     display: block;
     width: 99%;
     height: calc(1.2em + .75rem + 2px);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
+    text-indent: 0.5em;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 
-}
-.studio-app textarea{
-    height:100px;
-    padding-top: 10px;
-}
-/*.studio-app select {
-    background: url('../images/down-arrow.png') no-repeat right, -moz-linear-gradient(top, #FBFBFB 0%, #E9E9E9 100%);
-    background: url('../images/down-arrow.png') no-repeat right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FBFBFB), color-stop(100%,#E9E9E9));
-    appearance:none;
-    -webkit-appearance:none;
-    -moz-appearance: none;
-    text-indent: 0.5em;
-    text-overflow: '';
-    height:30px;
-}*/
 .studio-app .button {
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -121,31 +106,20 @@ studio-app label>span {
 input[type="text"]:hover,textarea:hover{
     border: 1px solid #0099cb;
 }
-/*label>span {
-    float: left;
-    width: 15%;
-    text-align: right;
-    padding-right: 15px;
-    margin-top: 10px;
-    font-weight: bold;
-    font-size:1.1em;
-}*/
+
 label>textarea,label > input[type="text"],label > select,input[type="text"]{
     width: 80%;
     border-radius: 5px;
 }
-.studio-app #intents,#inputs{
-    /*float: left;
-    width: 80%;*/
-}
+
 .studio-app #intents input{
-    margin: 0.5em 1em 0 0;
+    margin: 0.5em 0.5em 0 0;
     float: left;
-    width: 87%;
+    width: 92%;
 }
 #inputs_div .inputs-container>input {
-    width: 40%;
-    margin: 0.5em 1em 0 0;
+    width: 45%;
+    margin: 0.5em 0.5em 0 0;
     float: left;
 }
 i.fa{
@@ -182,6 +156,11 @@ color:rgb(0, 153, 203);
     flex: 0 0 41.666667%;
     max-width: 41.666667%;
 }
+.col-md-6{
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
 .inputs-container{
     overflow:auto;
 }
@@ -228,12 +207,30 @@ color:rgb(0, 153, 203);
     display:block;
     font-weight: bold;
     margin: 0.5em 1em;
+    font-size:1.1em;
 }
 .card > span span{
     font-weight: normal;
     margin-left: 0.5em;
+    word-break: break-all;
+
 }
 h1 p{
     margin:0;padding:0;
     margin-top: 7px;
+}
+.logo{
+    width: 80px;
+    position: absolute;
+    left: -18px;
+    top: -12px;
+    display: inline-block;
+    height: 80px;
+}
+img+p{
+    display: inline-block;
+    margin-left: 20px;
+}
+.studio-app{
+    position:relative;
 }
