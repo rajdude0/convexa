@@ -191,7 +191,7 @@ function toJSONString() {
     return obj;
     // return JSON.stringify(obj);
 }
-window.contact = function(){
+window.submitForm = function(){
     var json = toJSONString();
     var xhttp = new XMLHttpRequest();
 
