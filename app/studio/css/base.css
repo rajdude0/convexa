@@ -207,10 +207,13 @@ color:rgb(0, 153, 203);
     display:block;
     font-weight: bold;
     margin: 0.5em 1em;
+    font-size:1.1em;
 }
 .card > span span{
     font-weight: normal;
     margin-left: 0.5em;
+    word-break: break-all;
+
 }
 h1 p{
     margin:0;padding:0;
