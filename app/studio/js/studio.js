@@ -138,6 +138,7 @@
 
         }
         console.log(obj);
+        console.log(JSON.stringify(obj));
         for(var k=0;k<obj.userinputs.length;k++) {
             console.log(obj.userinputs[k].iname);
             console.log(obj.userinputs[k].ivalue);

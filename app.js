@@ -13,6 +13,7 @@ import os from 'os';
 import mongoose from 'mongoose';
 import configs from './configs';
 import { exec } from 'child_process';
+import Convexa from './Convexa';
 
 
 
@@ -33,7 +34,7 @@ var studioSchema = new mongoose.Schema({
 var Studio = mongoose.model("Studio", studioSchema);
 
 
-
+const convexa = new Convexa('/Users/rajsharm/Downloads/botpress-v12_2_1-darwin-x64/data/bots', 'testbot');
 const app = express();
 const compiler = webpack(webpackConfig);
 const router = express.Router();
@@ -54,6 +55,14 @@ router.get("/", (req, res, next) => {
 })
 
 router.post('/save', function(req, res) {
+  //TODO: as we get information to save, process it and create intent for that with the posssible strings,
+  // also add this created intent to the flow and train the model manually.
+  console.log(req.body);
+  const { api, userinputs, intents, method, inputValue } = req.body;
+  if(!inputValue) {
+    inputValue = Math.random()* 100;
+  }
+  convexa.createAPIEntry({ url: api, intentname: `${inputValue}-intent` , method, slots: userinputs, utterances: intents});
   var myData = new Studio(req.body);
   myData.save().then(function(item){
       res.send("Name saved to database");
@@ -102,7 +111,7 @@ const devServer = new webpackDevServer(webpack(webpackConfig), {
     "/api/*": `http://localhost:${configs.APIPORT}/`
   }, contentBase: "app", inline: true, hot: true, stats: { colors: true }, publicPath: webpackConfig.output.publicPath
 })
-devServer.listen(configs.UIPORT, 'localhost', (err) => {
+devServer.listen(configs.UIPORT, '0.0.0.0', (err) => {
   if (err) {
     console.log(err);
   }
@@ -114,6 +123,6 @@ devServer.listen(configs.UIPORT, 'localhost', (err) => {
 });
 
 const server = http.createServer(app);
-server.listen(configs.APIPORT);
+server.listen(configs.APIPORT, '0.0.0.0');
 
 
