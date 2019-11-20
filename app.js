@@ -23,9 +23,11 @@ var inputSchema = new mongoose.Schema({
     ivalue:String
 });
 var studioSchema = new mongoose.Schema({
+    project:String,
     api: String,
     userinputs: [{}],
     method: String,
+    intent:String,
     intents:Array,
     resType:String
 
@@ -56,13 +58,27 @@ router.get("/", (req, res, next) => {
 router.post('/save', function(req, res) {
   var myData = new Studio(req.body);
   myData.save().then(function(item){
-      res.send("Name saved to database");
+      res.send("Data saved to database");
   })
   .catch(function(err){
       res.status(400).send("Unable to save to database");
  });
 
 });
+
+router.get("/allRecords", function(req, res, next) {
+    Studio.find({}, function(err, result) {
+            if (err) throw err;
+            if (result) {
+                res.json(result)
+            } else {
+                res.send(JSON.stringify({
+                    error : 'Error'
+                }))
+            }
+        })
+
+    });
 
 app.use('/api', router)
 app.use(function (req, res, next) {
