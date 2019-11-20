@@ -6,18 +6,20 @@
     </head>
     <body>
         <div class="form-container studio-app">
-            <h1>Convexa studio</h1>
+            <form onSubmit="return contact()">
+                <h1><!--<img src="images/logo.jpeg" title="logo"/>--><p>Convexa studio</p></h1>
+
             <div class="form-row">
-                <label for = "project"><span>Project</span>
-                    <input type="text" name="project" id="project" required/></label>
+                <label for = "project"><span>Project</span></label>
+                    <input type="text" name="project" id="project" required/>
             </div>
             <div name="register" id="register">
                 <div class="form-row">
-                <label for = "api"><span>API</span>
-                    <input type="text" name="api" id="api" required/></label>
+                <label for = "api"><span>API</span></label>
+                    <input type="text" name="api" id="api" required/>
             </div>
                 <div class="form-row" id="inputs_div">
-                    <label><span>Inputs</span>
+                    <label><span>Inputs</span></label>
                         <div id="inputs">
                             <div class="inputs-container">
                                 <input type="text" name="inputName" id="input1" required/>
@@ -25,22 +27,22 @@
                                 <i class="fa fa-plus-circle fa-inline" aria-hidden="true" id="add_input"></i>
                             </div>
                         </div>
-                    </label>
+
                 </div>
 
                 <div class="form-row">
-                    <label for = "method"><span>Method</span>
+                    <label for = "method"><span>Method</span></label>
                     <select name="method" id="method" required>
                         <option value="get">GET</option>
                     </select>
-                    </label>
+
                 </div>
                 <div class="form-row">
-                    <label for = "intent"><span>Intent</span>
-                        <input type="text" name="intent" id="intent" required/></label>
+                    <label for = "intent"><span>Intent</span></label>
+                        <input type="text" name="intent" id="intent" required/>
                 </div>
                 <div class="form-row">
-                    <label><span>Expressions</span>
+                    <label><span>Expressions</span></label>
                         <div id="intents">
                         <div class="intents-holder">
                             <input type="text" id="intent1" name="intents" required></input>
@@ -48,20 +50,21 @@
 
                         </div>
                         </div>
-                    </label>
+
                 </div>
                 <div class="form-row">
-                    <label for = "resType"><span>Response Type</span>
+                    <label for = "resType"><span>Response Type</span> </label>
                     <select name="resType" id="resType" required>
                         <option value="table">TABLE</option>
                     </select>
-                    </label>
+
                 </div>
                 <div class="form-row button-holder">
-                    <input type="button" id="form_reset" value="Reset" class="button button-default"/>
-                    <input type="button" id="form_submit" value="Submit" class="button button-primary" />
+                    <input type="button" id="form_reset" value="Reset" class="btn button-default"/>
+                    <input type="submit" id="form_submit" value="Submit" class="btn btn-primary" />
                 </div>
             </div>
+            </form>
         </div>
     </body>
     <script src="../app/assets/bundle-studio.js"></script>
