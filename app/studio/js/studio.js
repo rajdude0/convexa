@@ -35,26 +35,7 @@
             };
             xhttp2.send(null);
         }
-        var form_submit_button = document.getElementById("form_submit");
-        if(form_submit_button) {
-            form_submit_button.addEventListener("click", function (e) {
-                var json = toJSONString();
-                var xhttp = new XMLHttpRequest();
 
-
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        console.log(this.responseText);
-                        window.location.assign("http://localhost:4001/studio/details.html");
-
-                    }
-                };
-
-                xhttp.open('POST', `../api/save`, true);
-                xhttp.setRequestHeader('Content-Type', 'application/json');
-                xhttp.send(JSON.stringify(json));
-            }, false);
-        }
     });
 
     function showCards(arr){
@@ -174,44 +155,58 @@
         event.target.parentNode.removeChild(event.target);
     }
 
+})();
+function toJSONString() {
+    var obj = {
+        "userinputs" :[],
+        "intents":[]
+    };
 
-    function toJSONString() {
-        var obj = {
-            "userinputs" :[],
-            "intents":[]
-        };
-
-        var inputsObj = {};
-        var elements = document.querySelectorAll("input[type='text'], select, textarea");
-        var j=1;
-        for (var i = 0; i < elements.length; ++i) {
-            var element = elements[i];
-            var name = element.name;
-            var value = element.value;
-            if (name === "inputName" || name === "inputValue") {
-                if(name === "inputName")inputsObj["iname"] = value;
-                if(name === "inputValue")inputsObj["ivalue"] = value
-                if(j%2 == 0) {
-                    obj["userinputs"].push(inputsObj);
-                    inputsObj={};
-                }
-                j++;
-
-            } if(name === "intents"){
-                obj.intents.push(value);
+    var inputsObj = {};
+    var elements = document.querySelectorAll("input[type='text'], select, textarea");
+    var j=1;
+    for (var i = 0; i < elements.length; ++i) {
+        var element = elements[i];
+        var name = element.name;
+        var value = element.value;
+        if (name === "inputName" || name === "inputValue") {
+            if(name === "inputName")inputsObj["iname"] = value;
+            if(name === "inputValue")inputsObj["ivalue"] = value
+            if(j%2 == 0) {
+                obj["userinputs"].push(inputsObj);
+                inputsObj={};
             }
-            else {
+            j++;
 
-                obj[name] = value;
-            }
+        } if(name === "intents"){
+            obj.intents.push(value);
+        }
+        else {
 
+            obj[name] = value;
         }
 
-        return obj;
-       // return JSON.stringify(obj);
     }
 
+    return obj;
+    // return JSON.stringify(obj);
+}
+window.contact = function(){
+    var json = toJSONString();
+    var xhttp = new XMLHttpRequest();
 
 
-})();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            window.location.assign("http://localhost:4001/studio/details.html");
+
+        }
+    };
+
+    xhttp.open('POST', `../api/save`, true);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.send(JSON.stringify(json));
+    return false;
+}
 
