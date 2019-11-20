@@ -116,7 +116,11 @@ class App extends React.Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 {/*<JsonToTable json={myJSON} />*/}
+=======
+                <JsonToTable json={myJSON} />
+>>>>>>> 5457d6e0c52825665e139955ac08853d1ec76d28
               <div id="chatbot">
                     
         </div>
