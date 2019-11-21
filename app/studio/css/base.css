@@ -220,16 +220,16 @@ h1 p{
     margin-top: 7px;
 }
 .logo{
-    width: 80px;
+    width: 100px;
     position: absolute;
-    left: -18px;
-    top: -12px;
+    left: -15px;
+    top: -23px;
     display: inline-block;
-    height: 80px;
+    height: 100px;
 }
 img+p{
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 .studio-app{
     position:relative;
