@@ -54,7 +54,11 @@ class Convexa {
     }
 
     async createAPIEntry({url, intentname, method, slots, utterances}) {
+<<<<<<< HEAD
         await botpressAgent.login('xxxxxxxx@xxx', 'xxxxxxxxx');
+=======
+        await botpressAgent.login('xxxxxx@xxxx.com', 'xxxxxxxx');
+>>>>>>> 6fbe835... Update Convexa.js
         console.log("Login successfull");
         await botpressAgent.createIntent(intentname, utterances);
         console.log("Intent created");
